@@ -1,11 +1,12 @@
 import './TitleCards.css'
 import {useEffect, useRef, useState} from "react";
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 const TitleCards = ({title, category}) => {
 
     const [apiData, setApiData] = useState([]);
     const cardsRef = useRef(null);
+    const location = useLocation();
 
     const fetchData = async () => {
         try {
@@ -51,7 +52,7 @@ const TitleCards = ({title, category}) => {
             <h2>{title || "Popular on Netflix"}</h2>
             <div className="card-list" ref={cardsRef}>
                 {apiData.map((card, index) => {
-                    return <Link to={`/player/${card.id}`} className="card" key={index}>
+                    return <Link to={`/player/${card.id}`} state={{from: location.pathname}} className="card" key={index}>
                         <img src={`https://image.tmdb.org/t/p/w500` + card.backdrop_path} alt=""/>
                         <p>{card.original_title}</p>
                     </Link>
