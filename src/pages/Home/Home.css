@@ -19,7 +19,7 @@
 }
 .hero-caption p{
     max-width: 700px;
-    font-size: 17px;
+    font-size: clamp(10px, 2vw, 16px);
     margin-bottom: 20px;
 }
 .hero-btns{
@@ -55,4 +55,43 @@
 }
 .more-cards {
     padding-left: 6%;
+}
+@media (max-width: 1024px){
+    .hero-caption .title-cards{
+        display: none;
+    }
+    .hero-btns{
+        margin-bottom: 30px;
+    }
+}
+@media (max-width: 900px){
+    .hero-caption{
+        padding-left: 4%;
+    }
+    .caption-img{
+        margin-bottom: 10px;
+        width: 40%
+    }
+    .hero-btns .btn img{
+        width: 20px;
+    }
+    .hero-caption .title-сards{
+        display: none;
+    }
+    .more-cards{
+        padding-left: 4%;
+    }
+}
+@media (max-width: 500px){
+    .caption-img{
+        display: none;
+    }
+    .hero-btns .btn img{
+        width: 15px;
+    }
+    .hero-btns .btn{
+        padding: 4px 10px;
+        gap: 5px;
+        font-size: 10px;
+    }
 }
